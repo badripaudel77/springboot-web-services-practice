@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import io.badri.app.entity.Product;
+import io.badri.app.entity.User;
+
 
 public interface ProductService {
 
@@ -22,6 +24,9 @@ public interface ProductService {
 	
 	//find all the products in table [for admin ]
 	public List<Product> getAllProducts();
+	
+	//find all the ratings of a product
+	//public List<Product> getAllRatings(int userId);
 
 	
 }

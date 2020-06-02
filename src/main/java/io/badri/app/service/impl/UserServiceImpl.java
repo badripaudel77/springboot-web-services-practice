@@ -118,12 +118,15 @@ public class UserServiceImpl implements UserService {
 		String email = user.getEmail();
 		String password = user.getPassword();
 
+		System.out.println("sanity check username----- " + uname  + 
+				" password ------- " + password);		
+
 		if ((userRepo.findByUsername(uname) != null && userRepo.findByPassword(password) != null)
 				|| (userRepo.findByPassword(password) != null && userRepo.findByEmail(email) != null)) {
 
 			return true;
 		}
-		return false;
+		else return false;
 	}
 
 	private String generateVerficationToken(User user) {
@@ -147,8 +150,7 @@ public class UserServiceImpl implements UserService {
 		 
 		if (verificationToken != null && verificationToken.getExpiryDate() != null) {
            
-			fetchUserandEnable(verificationToken);
-            
+			fetchUserandEnable(verificationToken); 
 		}
 		
 		else throw new RuntimeException("Token expired, signup again.");

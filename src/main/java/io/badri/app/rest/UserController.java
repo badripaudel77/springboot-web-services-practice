@@ -19,6 +19,7 @@ import io.badri.app.service.UserService;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+	// di , use either filed or constructor injection [ most popular one , even though we alos have others ]
 	
 	@Autowired
 	private UserService userService;

@@ -43,13 +43,17 @@ public class ProductServiceImpl implements ProductService {
        
        //thank you for shopping with us. Send sms
        //to, from , message
-   	MessageCreator creator = 	Message.creator(
+   	
+       /*
+       MessageCreator creator = 	Message.creator(
    				          new PhoneNumber(userPhone),
    				          new PhoneNumber(twilioConfig.getTrialNumber()), 
    			              "Thank you " + user.getFirstName() + " for shopping with us !!"
    			            );
    	
    	creator.create(); //sends the message
+   	*/
+       
 	}	
     
 	//find all product associated with its userId [ your own product ]
@@ -105,5 +109,11 @@ public class ProductServiceImpl implements ProductService {
 		
 		return  productRepo.findByUserId(userId, pageable);
 	}
+//
+//	@Override
+//	public List<Product> getAllRatings(int userId) {
+//
+//		return productRepo.findByUser(userId);
+//	}
 }
 

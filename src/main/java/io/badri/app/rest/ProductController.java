@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.badri.app.entity.Product;
@@ -73,4 +72,18 @@ public class ProductController {
 		
 		return products;
 	}
+	
+//	//get all the ratings associated with the product of productId
+//	@GetMapping("/products/{userId}")
+//	public List<Float> getAllRatings(@PathVariable(name = "userId")int userId) {
+//		
+//		List<Product> products = productService.getAllRatings(userId);
+//		
+//		List<Float> ratings = users.get;
+//		for(int i = 0; i<users.size() ; i ++) {
+//			
+//			ratings.add(users.get)
+//		}
+//		return ratings;
+//	}
 }

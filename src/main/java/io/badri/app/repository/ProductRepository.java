@@ -1,6 +1,6 @@
 package io.badri.app.repository;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +12,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Page<Product> findByUserId(int userId, Pageable pageable); //find products by userId
 
-    //Optional<Product> findByPidAndUserId(Long id, int userId);// not even used
+   // Optional<Product> findByPidAndUserId(Long id, int userId);// not even used
+
+	//List<Product> findByUser(int userId);
 	    
 }
 

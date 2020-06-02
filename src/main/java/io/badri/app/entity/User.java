@@ -33,7 +33,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@JsonIgnore
 	@Column(name = "user_id")
-	private int user_id; //
+	private int id; //
 
 	private String firstName;
 
@@ -88,11 +88,11 @@ public class User {
 	
 
 	public int getId() {
-		return user_id;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.user_id = id;
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -200,7 +200,7 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [id=" + user_id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", email="
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob + ", email="
 				+ email + ", username=" + username + ", password=" + password + ", enabled=" + enabled + ", phoneNumber =" + phoneNumber + "]";
 	}
 

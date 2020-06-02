@@ -1,6 +1,5 @@
 package io.badri.app.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +24,8 @@ public class Product{
 	private String productDesc;
 	private double price;
 	private int quantity;
+	private float rating;
+	
 
 	@ManyToOne(optional = false) //fetch = FetchType.LAZY, 
 	@JoinColumn(name="user_id" , referencedColumnName="user_id" , nullable=false)
@@ -81,6 +82,15 @@ public class Product{
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+
+	public float getRating() {
+		return rating;
+	}
+
+	public void setRating(float rating) {
+		this.rating = rating;
 	}
 
 	public User getUser() {
