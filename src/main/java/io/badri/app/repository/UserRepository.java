@@ -15,8 +15,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	public User findByPassword(String password);
 	
+//	@Query("select u from User u where u.id = :id")
 	public User findById(int id);
-   // public User findByUser_id(int id);
         
 	public List<User> findByDob(LocalDate dob);
 			

@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -113,20 +114,37 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean getLoggedinUser(User user) {
-
 		String uname = user.getUsername();
 		String email = user.getEmail();
 		String password = user.getPassword();
+		
+		BCryptPasswordEncoder bcryptEncoder = new BCryptPasswordEncoder();
 
-		System.out.println("sanity check username----- " + uname  + 
-				" password ------- " + password);		
-
-		if ((userRepo.findByUsername(uname) != null && userRepo.findByPassword(password) != null)
-				|| (userRepo.findByPassword(password) != null && userRepo.findByEmail(email) != null)) {
-
+		User userWithUsername = userRepo.findByUsername(uname);//as username is unique
+		User userWithEmail = userRepo.findByEmail(email); //unique email
+		
+		String hashedPassword = "";
+		
+		 if(userWithUsername !=null) {
+		    hashedPassword = userWithUsername.getPassword();
+		  System.out.println("------------" + userWithUsername + " _------------- " + hashedPassword);
+		 }
+		 
+		 else if(userWithEmail !=null) {
+			    hashedPassword = userWithEmail.getPassword();
+			  System.out.println("------------" + userWithUsername + " _------------- " + hashedPassword);
+	     }
+			 
+		boolean isPasswordMatched = bcryptEncoder.matches(password, hashedPassword);
+			
+	if(((userWithUsername ==null && userWithEmail != null ) && userWithEmail.isEnabled() == false) || ((userWithEmail ==null && userWithUsername !=null) && userWithUsername.isEnabled() == false)) {	
+			return false;
+		}
+		
+		if ((userRepo.findByUsername(uname) !=null && isPasswordMatched) || (userRepo.findByEmail(email) !=null && isPasswordMatched)) {
 			return true;
 		}
-		else return false;
+	   return false;
 	}
 
 	private String generateVerficationToken(User user) {
