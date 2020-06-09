@@ -20,8 +20,8 @@ public class MailController {
 //	@RequestMapping(value = "/sendemail")
 //	public String sendMail() throws MessagingException  {
 //		Mail mail = new Mail();
-//		mail.setMailFrom("spring.navigate@gmail.com");
-//		mail.setMailTo("badripaudel77@gmail.com");
+//		mail.setMailFrom("email@gmail.com");
+//		mail.setMailTo("email@gmail.com");
 //		mail.setMailSubject("Spring Boot - Email Service");
 //		mail.setMailContent("Learn how to send email using Spring Boot!");
 //		mailService.sendMail(mail);
@@ -32,8 +32,8 @@ public class MailController {
 	@ResponseBody
 	public String sendMailAttachment() throws MessagingException {
 		Mail mail = new Mail();
-		mail.setMailFrom("spring.navigate@gmail.com");
-		mail.setMailTo("badri@ncit.edu.np");
+		mail.setMailFrom("frommail@gmail.com");
+		mail.setMailTo("tomail@ncit.edu.np");
 		mail.setMailSubject("Spring Boot - Email Service");
 		mail.setMailContent("Email verification");
 		mailService.sendMailWithAttachment(mail);
