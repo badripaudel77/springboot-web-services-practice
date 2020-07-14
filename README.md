@@ -2,6 +2,7 @@
 # spring-boot-ld
 
 This project has been developed with spring boot , hibernate and JPA . This was developed for learning purposes but it has got something to share.
+----------------------
 
 WHAT THIS PROJECT HAS ?
 ----------------------
