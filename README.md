@@ -51,3 +51,6 @@ created automatically by hibernate and jpa based on entity class.
 8) Give me feedbacks in this code , where and what can I imporove. 
 
 ---------
+
+### screenshot demo
+![ScreenShot](https://badripaudel.netlify.app/images/spring_rest.PNG)
